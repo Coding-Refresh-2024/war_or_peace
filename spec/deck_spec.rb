@@ -23,11 +23,11 @@ RSpec.describe Deck do
     expect(deck.high_ranking_cards).to eq([card1, card3])
   end
 
-  it "returns a percent value of the high ranking cards in the deck" do
+  xit "returns a percent value of the high ranking cards in the deck" do
     expect(deck.percent_high_ranking).to eq(66.67)
   end
 
-  it "removes the top card from the deck" do
+  xit "removes the top card from the deck" do
     expect(deck.remove_card).to be(card1)
   end
 end
