@@ -16,6 +16,10 @@ RSpec.describe Deck do
   end
 
   it "gets the card rank at element X" do
-    expect(deck.rank_of_card_at(0)).to eq(12) 
+    expect(deck.rank_of_card_at(0)).to eq(12)
+  end
+
+  it "gets an array of cards with rank >= 11" do
+    expect(deck.high_ranking_cards).to eq([card1, card3])
   end
 end
