@@ -22,4 +22,8 @@ RSpec.describe Deck do
   it "gets an array of cards with rank >= 11" do
     expect(deck.high_ranking_cards).to eq([card1, card3])
   end
+
+  it "returns a percent value of the high ranking cards in the deck" do
+    expect(deck.percent_high_ranking).to eq(66.67)
+  end
 end
