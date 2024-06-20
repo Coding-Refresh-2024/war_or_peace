@@ -6,6 +6,7 @@ require 'pry'
 card1 = Card.new(:diamond, 'Queen', 12)
 card2 = Card.new(:spade, '3', 3)
 card3 = Card.new(:heart, 'Ace', 14)
+card4 = Card.new(:club, '5', 5)
 
 cards = [card1, card2, card3]
 
@@ -30,5 +31,13 @@ RSpec.describe Deck do
 
   it "removes the top card from the deck" do
     expect(deck.remove_card).to be(card1)
+  end
+
+  it "adds a card to the bottom of the deck" do
+    expect(deck.cards.count).to eq(3)
+
+    deck.add_card(card4)
+
+    expect(deck.cards.count).to eq(4)
   end
 end
