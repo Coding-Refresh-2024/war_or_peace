@@ -19,4 +19,27 @@ class Turn
       :war
     end
   end
+
+  def winner
+    if self.type == :basic
+      if @player1.deck.rank_of_card_at(0) > @player2.deck.rank_of_card_at(0)
+        @player1
+      else
+        @player2
+      end
+
+    elsif self.type == :war
+      if @player1.deck.rank_of_card_at(2) > @player2.deck.rank_of_card_at(2)
+       @player1
+     else
+       @player2
+     end
+
+   else
+     "No Winner"
+   end
+  end
+
+
+  
 end
