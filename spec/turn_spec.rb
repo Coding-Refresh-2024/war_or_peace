@@ -48,4 +48,17 @@ RSpec.describe Turn do
 
     expect(@turn.type).to eq(:mutually_assured_destruction)
   end
+
+  it "checks to see who wins the current turn" do
+    expect(@turn.winner).to eq(@player1)
+
+    @turn.player2.deck.remove_card
+
+    expect(@turn.winner).to eq(@player1)
+
+    @turn.player2.deck.cards.pop
+    @turn.player2.deck.add_card(@card9)
+
+    expect(@turn.winner).to eq("No Winner")
+  end
 end
