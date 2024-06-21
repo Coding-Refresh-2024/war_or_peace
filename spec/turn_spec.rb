@@ -37,15 +37,15 @@ RSpec.describe Turn do
   end
 
   it "checks the turn type" do
-    expect(@turn.turn).to eq(:basic)
+    expect(@turn.type).to eq(:basic)
 
     @turn.player2.deck.remove_card
 
-    expect(@turn.turn).to eq(:war)
+    expect(@turn.type).to eq(:war)
 
-    @turn.player2.deck.pop
+    @turn.player2.deck.cards.pop
     @turn.player2.deck.add_card(@card9)
 
-    expect(@turn.turn).to eq(:mutually_assured_destruction)
+    expect(@turn.type).to eq(:mutually_assured_destruction)
   end
 end
