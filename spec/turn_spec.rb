@@ -15,6 +15,7 @@ RSpec.describe Turn do
     @card6 = Card.new(:diamond, 'Queen', 12)
     @card7 = Card.new(:heart, '3', 3)
     @card8 = Card.new(:diamond, '2', 2)
+    @card9 = Card.new(:diamond, '8', 8)
 
     @cards1 = [@card1, @card2, @card5, @card8]
     @cards2 = [@card3, @card4, @card6, @card7]
@@ -35,4 +36,16 @@ RSpec.describe Turn do
     expect(@turn.spoils_of_war).to eq([])
   end
 
+  it "checks the turn type" do
+    expect(@turn.turn).to eq(:basic)
+
+    @turn.player2.deck.remove_card
+
+    expect(@turn.turn).to eq(:war)
+
+    @turn.player2.deck.pop
+    @turn.player2.deck.add_card(@card9)
+
+    expect(@turn.turn).to eq(:mutually_assured_destruction)
+  end
 end
