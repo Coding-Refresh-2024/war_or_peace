@@ -16,8 +16,8 @@ RSpec.describe Turn do
     @card7 = Card.new(:heart, '3', 3)
     @card8 = Card.new(:diamond, '2', 2)
 
-    @cards1 = [card1, card2, card5, card8]
-    @cards2 = [card3, card4, card6, card7]
+    @cards1 = [@card1, @card2, @card5, @card8]
+    @cards2 = [@card3, @card4, @card6, @card7]
 
     @deck1 = Deck.new(@cards1)
     @deck2 = Deck.new(@cards2)
