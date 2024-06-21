@@ -32,6 +32,7 @@ RSpec.describe Turn do
     expect(@turn).to be_an_instance_of(Turn)
     expect(@turn.player1).to eq(@player1)
     expect(@turn.player2).to eq(@player2)
+    expect(@turn.spoils_of_war).to eq([])
   end
 
 end
