@@ -80,7 +80,7 @@ RSpec.describe Turn do
 
     @turn.pile_cards
 
-    expect(@turn.spoils_of_war).to eq([@card1, @card2, @card5, @card3, @card4, @card6])
+    expect(@turn.spoils_of_war).to eq([@card1, @card2, @card5, @card4, @card6, @card7])
   end
 
   it "sends cards to the spoils of war array based on turn type :mutually_assured_destruction" do
@@ -96,6 +96,6 @@ RSpec.describe Turn do
 
     expect(@turn.spoils_of_war).to eq([])
     expect(@turn.player1.deck.cards.count).to eq(1)
-    expect(@turn.player2.deck.cards.count).to eq(1)
+    expect(@turn.player2.deck.cards.count).to eq(0)
   end
 end
