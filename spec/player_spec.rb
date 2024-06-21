@@ -22,4 +22,9 @@ RSpec.describe Player do
     expect(@player).to be_an_instance_of(Player)
   end
 
+  it "has attributes" do
+    expect(@player.name).to eq('Clarisa')
+    expect(@player.deck).to eq(@deck)
+  end
+
 end
