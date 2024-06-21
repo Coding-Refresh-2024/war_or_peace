@@ -27,4 +27,16 @@ RSpec.describe Player do
     expect(@player.deck).to eq(@deck)
   end
 
+  it "checks if the player has lost" do
+    expect(@player.has_lost?).to eq(false)
+    @player.deck.remove_card
+
+    expect(@player.has_lost?).to eq(false)
+    @player.deck.remove_card
+
+    expect(@player.has_lost?).to eq(false)
+    @player.deck.remove_card
+
+    expect(@player.has_lost?).to eq(true)
+  end
 end
