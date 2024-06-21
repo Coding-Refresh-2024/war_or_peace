@@ -61,4 +61,41 @@ RSpec.describe Turn do
 
     expect(@turn.winner).to eq("No Winner")
   end
+
+  it "sends cards to the spoils of war array based on turn type :basic" do
+    expect(@turn.spoils_of_war).to eq([])
+    expect(@turn.type).to eq(:basic)
+
+    @turn.pile_cards
+
+    expect(@turn.spoils_of_war).to eq([@card1, @card3])
+  end
+
+  it "sends cards to the spoils of war array based on turn type :war" do
+    expect(@turn.spoils_of_war).to eq([])
+
+    @turn.player2.deck.remove_card
+
+    expect(@turn.type).to eq(:war)
+
+    @turn.pile_cards
+
+    expect(@turn.spoils_of_war).to eq([@card1, @card2, @card5, @card3, @card4, @card6])
+  end
+
+  it "sends cards to the spoils of war array based on turn type :mutually_assured_destruction" do
+    expect(@turn.spoils_of_war).to eq([])
+    expect(@turn.player1.deck.cards.count).to eq(4)
+    expect(@turn.player2.deck.cards.count).to eq(4)
+
+    @turn.player2.deck.remove_card
+    @turn.player2.deck.cards.pop
+    @turn.player2.deck.add_card(@card9)
+
+    @turn.pile_cards
+
+    expect(@turn.spoils_of_war).to eq([])
+    expect(@turn.player1.deck.cards.count).to eq(1)
+    expect(@turn.player2.deck.cards.count).to eq(1)
+  end
 end
