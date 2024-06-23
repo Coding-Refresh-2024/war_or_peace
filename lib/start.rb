@@ -21,14 +21,6 @@ class Start
 
           p "---- DRAW ----"
 
-        elsif  turn.player1.has_lost? == true
-
-          p "*~*~*~* #{turn.player2.name} has won the game! *~*~*~*"
-
-        elsif turn.player2.has_lost? == true
-
-          p "*~*~*~* #{turn.player1.name} has won the game! *~*~*~*"
-
         else
 
           if turn.type == :basic
@@ -53,9 +45,23 @@ class Start
 
             turn.pile_cards
             turn_count += 1
+          elsif turn.type == :draw
 
+            p "This hand can't be played as someone doesn't have enough cards."
+
+            turn_count += 1
           end
         end
+      end
+
+      if  turn.player1.has_lost? == true
+
+        p "*~*~*~* #{turn.player2.name} has won the game! *~*~*~*"
+
+      elsif turn.player2.has_lost? == true
+      
+        p "*~*~*~* #{turn.player1.name} has won the game! *~*~*~*"
+
       end
 
     end
