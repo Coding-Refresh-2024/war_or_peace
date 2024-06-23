@@ -18,7 +18,7 @@ class Start
 
       while turn_count < 1000001 && turn.player1.has_lost? == false && turn.player2.has_lost? == false
         if turn_count == 1000000
-          
+
           p "---- DRAW ----"
 
         elsif  turn.player1.has_lost? == true
@@ -30,6 +30,7 @@ class Start
           p "*~*~*~* #{turn.player1.name} has won the game! *~*~*~*"
 
         else
+
           if turn.type == :basic
 
             p "Turn #{turn_count}: #{turn.winner.name} won 2 cards"
@@ -54,7 +55,7 @@ class Start
             turn_count += 1
 
           end
-
+        end
       end
 
     end
