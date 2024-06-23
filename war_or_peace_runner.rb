@@ -64,5 +64,25 @@ full_deck.shuffle!
 deck1 = Deck.new(full_deck[0..25])
 deck2 = Deck.new(full_deck[26..52])
 
-player1 = Player.new('Cory', deck1)
-player2 = Player.new('Jay', deck2)
+p "Hello! What is player 1s name?"
+
+name1 = gets.chomp
+
+p "Hello! What is player 2s name?"
+
+name2 = gets.chomp
+
+player1 = Player.new(name1, deck1)
+player2 = Player.new(name2, deck2)
+
+
+p "Welcome to War! (or Peace) This game will be played with 52 cards."
+p "The players today are #{player1.name} and #{player2.name}."
+p "Type 'GO' to start the game."
+p "------------------------------------------------------------------"
+
+initial_input = gets.put
+
+start = Start.new(initial_input)
+
+start.start
