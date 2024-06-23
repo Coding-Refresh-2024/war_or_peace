@@ -9,11 +9,12 @@ require 'pry'
 RSpec.describe Start do
 
   before :each do
-    @start = Start.new()
+    @start = Start.new('GO')
   end
 
-  it "exists" do
+  it "exists and has variables" do
     expect(@start).to be_an_instance_of(Start)
+    expect(@start.input).to eq("GO")
   end
 
 end

@@ -81,8 +81,8 @@ p "The players today are #{player1.name} and #{player2.name}."
 p "Type 'GO' to start the game."
 p "------------------------------------------------------------------"
 
-initial_input = gets.put
+initial_input = gets.chomp
 
-start = Start.new(initial_input)
+game = Start.new(initial_input)
 
-start.start
+game.start
