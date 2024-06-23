@@ -75,6 +75,7 @@ name2 = gets.chomp
 player1 = Player.new(name1, deck1)
 player2 = Player.new(name2, deck2)
 
+turn = Turn.new(player1, player2)
 
 p "Welcome to War! (or Peace) This game will be played with 52 cards."
 p "The players today are #{player1.name} and #{player2.name}."
@@ -85,4 +86,4 @@ initial_input = gets.chomp
 
 game = Start.new(initial_input)
 
-game.start
+game.start(turn)
