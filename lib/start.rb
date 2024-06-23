@@ -10,37 +10,41 @@ class Start
     turn_count = 1
 
     if @input != 'GO'
-      p "Please type 'GO' to start the game."
+      p "Please rerun the start file and type 'GO' exactly to start the game."
 
-    else
-      if turn.type == :basic
+      exit
 
-        p "Turn #{turn_count}: #{turn.winner.name} won 2 cards"
+    elsif @input == 'GO'
 
-        turn.pile_cards
-        turn.award_spoils(turn.winner)
-        turn_count += 1
+      while turn_count < 1000000 && turn.player1.has_lost? == false && turn.player2.has_lost? == false
+        if turn.type == :basic
 
-      elsif turn.type == :war
+          p "Turn #{turn_count}: #{turn.winner.name} won 2 cards"
 
-        p "Turn #{turn_count}: WAR - #{turn.winner.name} won 6 cards"
+          turn.pile_cards
+          turn.award_spoils(turn.winner)
+          turn_count += 1
 
-        turn.pile_cards
-        turn.award_spoils(turn.winner)
-        turn_count += 1
+        elsif turn.type == :war
 
-      elsif turn.type == :mutually_assured_destruction
+          p "Turn #{turn_count}: WAR - #{turn.winner.name} won 6 cards"
 
-        p "Turn #{turn_count}: *mutually assured destruction* 6 cards removed from play"
+          turn.pile_cards
+          turn.award_spoils(turn.winner)
+          turn_count += 1
 
-        turn.pile_cards
-        turn_count += 1
+        elsif turn.type == :mutually_assured_destruction
+
+          p "Turn #{turn_count}: *mutually assured destruction* 6 cards removed from play"
+
+          turn.pile_cards
+          turn_count += 1
+
+        end
 
       end
 
-
     end
-
 
   end
 
